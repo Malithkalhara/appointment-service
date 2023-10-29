@@ -9,7 +9,7 @@ class UserModel {
     // Hash the password using bcrypt
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    const query = 'INSERT INTO appointment.users (username, password, name, email, mobile_number) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
+    const query = 'INSERT INTO appointment.users (username, password, name, email, mobile_number, role) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
     const values = [username, hashedPassword, name, email, mobile_number,role];
     const { rows } = await pool.query(query, values);
 
