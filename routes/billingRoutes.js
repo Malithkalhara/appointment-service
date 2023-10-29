@@ -1,7 +1,7 @@
 // billRouter.js
 const express = require('express');
 const router = express.Router();
-const BillController = require('../controllers/billController');
+const BillController = require('../controllers/billingController');
 
 // Create a new bill
 router.post('/', BillController.createBill);

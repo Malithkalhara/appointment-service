@@ -1,5 +1,5 @@
 // billController.js
-const BillModel = require('../models/billModel');
+const BillModel = require('../models/billingModel');
 
 class BillController {
   // Create a new bill

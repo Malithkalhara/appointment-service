@@ -35,7 +35,7 @@ CREATE TABLE appointments.appointments (
 );
 
 -- Create the Bills table
-CREATE TABLE appointments.bills (
+CREATE TABLE appointments.billing (
     id UUID PRIMARY KEY,
     customer_id UUID NOT NULL REFERENCES Customers(id),
     item_ids UUID[],
