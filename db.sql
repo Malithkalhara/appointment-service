@@ -1,4 +1,4 @@
-CREATE TABLE appointments.users (
+CREATE TABLE appointment.users (
     id serial PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE appointments.users (
 );
 
 -- Create the Customers table
-CREATE TABLE appointments.customers (
+CREATE TABLE appointment.customers (
     id UUID PRIMARY KEY,
     name TEXT NOT NULL,
     mobile_no TEXT NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE appointments.customers (
 );
 
 -- Create the Items table
-CREATE TABLE appointments.items (
+CREATE TABLE appointment.items (
     id UUID PRIMARY KEY,
     name TEXT NOT NULL,
     details TEXT,
@@ -26,20 +26,22 @@ CREATE TABLE appointments.items (
 );
 
 -- Create the Appointments table
-CREATE TABLE appointments.appointments (
+CREATE TABLE appointment.appointments (
     id UUID PRIMARY KEY,
     title TEXT NOT NULL,
     details TEXT,
     customer_id UUID NOT NULL REFERENCES Customers(id),
-    item_ids UUID[]
+    item_ids UUID[],
+    date TIMESTAMP NOT NULL;
 );
 
 -- Create the Bills table
-CREATE TABLE appointments.billing (
+CREATE TABLE appointment.billing (
     id UUID PRIMARY KEY,
     customer_id UUID NOT NULL REFERENCES Customers(id),
     item_ids UUID[],
     amount NUMERIC(10, 2) NOT NULL,
     appointment_id UUID REFERENCES Appointments(id),
-    status TEXT
+    status TEXT,
+    date TIMESTAMP NOT NULL;
 );

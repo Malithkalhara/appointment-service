@@ -2,9 +2,9 @@ const pool = require('../db');
 
 class AppointmentModel {
     // Create a new appointment
-    async createAppointment(title, details, customerId, itemIds) {
-      const query = 'INSERT INTO Appointments (title, details, customer_id, item_ids) VALUES ($1, $2, $3, $4) RETURNING *';
-      const values = [title, details, customerId, itemIds];
+    async createAppointment(title, details, customerId, itemIds, date) {
+      const query = 'INSERT INTO Appointments (title, details, customer_id, item_ids, date) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+      const values = [title, details, customerId, itemIds, date];
   
       try {
         const { rows } = await pool.query(query, values);

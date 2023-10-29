@@ -3,9 +3,9 @@ const pool = require('../db');
 class BillModel {
     // Create a new bill
     async createBill(billData) {
-      const { customer_id, item_ids, amount, appointment_id, status } = billData;
-      const query = 'INSERT INTO billing (id, customer_id, item_ids, amount, appointment_id, status) VALUES (uuid_generate_v4(), $1, $2, $3, $4, $5) RETURNING *';
-      const values = [customer_id, item_ids, amount, appointment_id, status];
+      const { customer_id, item_ids, amount, appointment_id, status, date } = billData;
+      const query = 'INSERT INTO billing (id, customer_id, item_ids, amount, appointment_id, status, date) VALUES (uuid_generate_v4(), $1, $2, $3, $4, $5, $6) RETURNING *';
+      const values = [customer_id, item_ids, amount, appointment_id, status, date];
       const { rows } = await pool.query(query, values);
       return rows[0];
     }

@@ -4,8 +4,8 @@ class AppointmentController {
     // Create a new appointment
     async createAppointment(req, res) {
       try {
-        const { title, details, customerId, itemIds } = req.body;
-        const appointment = await AppointmentModel.createAppointment(title, details, customerId, itemIds);
+        const { title, details, customerId, itemIds, date } = req.body;
+        const appointment = await AppointmentModel.createAppointment(title, details, customerId, itemIds, date);
         res.status(201).json(appointment);
       } catch (error) {
         res.status(500).json({ error: 'Could not create appointment' });
