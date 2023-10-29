@@ -3,7 +3,7 @@ const pool = require('../db');
 class CustomerModel {
     // Create a new customer
     async createCustomer(name, mobileNo, email) {
-      const query = 'INSERT INTO Customers (name, mobile_no, email) VALUES ($1, $2, $3) RETURNING *';
+      const query = 'INSERT INTO appointment.customers (name, mobile_no, email) VALUES ($1, $2, $3) RETURNING *';
       const values = [name, mobileNo, email];
   
       try {
@@ -16,7 +16,7 @@ class CustomerModel {
   
     // Read customers
     async getCustomers() {
-      const query = 'SELECT * FROM Customers';
+      const query = 'SELECT * FROM appointment.customers';
   
       try {
         const { rows } = await pool.query(query);
@@ -28,7 +28,7 @@ class CustomerModel {
   
     // Read a single customer by ID
     async getCustomerById(customerId) {
-      const query = 'SELECT * FROM Customers WHERE id = $1';
+      const query = 'SELECT * FROM appointment.customers WHERE id = $1';
       const values = [customerId];
   
       try {
@@ -41,7 +41,7 @@ class CustomerModel {
   
     // Update a customer
     async updateCustomer(customerId, name, mobileNo, email) {
-      const query = 'UPDATE Customers SET name = $2, mobile_no = $3, email = $4 WHERE id = $1 RETURNING *';
+      const query = 'UPDATE appointment.customers SET name = $2, mobile_no = $3, email = $4 WHERE id = $1 RETURNING *';
       const values = [customerId, name, mobileNo, email];
   
       try {
@@ -54,7 +54,7 @@ class CustomerModel {
   
     // Delete a customer
     async deleteCustomer(customerId) {
-      const query = 'DELETE FROM Customers WHERE id = $1';
+      const query = 'DELETE FROM appointment.customers WHERE id = $1';
       const values = [customerId];
   
       try {

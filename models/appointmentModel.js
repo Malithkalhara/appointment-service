@@ -3,7 +3,7 @@ const pool = require('../db');
 class AppointmentModel {
     // Create a new appointment
     async createAppointment(title, details, customerId, itemIds, date) {
-      const query = 'INSERT INTO Appointments (title, details, customer_id, item_ids, date) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+      const query = 'INSERT INTO appointment.appointments (title, details, customer_id, item_ids, date) VALUES ($1, $2, $3, $4, $5) RETURNING *';
       const values = [title, details, customerId, itemIds, date];
   
       try {
@@ -16,7 +16,7 @@ class AppointmentModel {
   
     // Read appointments
     async getAppointments() {
-      const query = 'SELECT * FROM Appointments';
+      const query = 'SELECT * FROM appointment.appointments';
   
       try {
         const { rows } = await pool.query(query);
@@ -28,7 +28,7 @@ class AppointmentModel {
   
     // Read a single appointment by ID
     async getAppointmentById(appointmentId) {
-      const query = 'SELECT * FROM Appointments WHERE id = $1';
+      const query = 'SELECT * FROM appointment.appointments WHERE id = $1';
       const values = [appointmentId];
   
       try {
@@ -41,7 +41,7 @@ class AppointmentModel {
   
     // Update an appointment
     async updateAppointment(appointmentId, title, details, itemIds) {
-      const query = 'UPDATE Appointments SET title = $2, details = $3, item_ids = $4 WHERE id = $1 RETURNING *';
+      const query = 'UPDATE appointment.appointments SET title = $2, details = $3, item_ids = $4 WHERE id = $1 RETURNING *';
       const values = [appointmentId, title, details, itemIds];
   
       try {
@@ -54,7 +54,7 @@ class AppointmentModel {
   
     // Delete an appointment
     async deleteAppointment(appointmentId) {
-      const query = 'DELETE FROM Appointments WHERE id = $1';
+      const query = 'DELETE FROM appointment.appointments WHERE id = $1';
       const values = [appointmentId];
   
       try {
