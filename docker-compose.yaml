@@ -7,7 +7,7 @@ services:
     image: appointment-service:latest
     environment:
       - USER=postgres
-      - HOST=localhost
+      - HOST=postgres
       - DATABASE=sms
       - PASSWORD=postgres@123
       - DB_PORT=5432
@@ -15,21 +15,21 @@ services:
       - JWT_SECRET=VFCiVujQICfu2ZPg
     ports:
       - "6000:6000"
-    # depends_on:
-    #   - postgres
+    depends_on:
+      - postgres
     networks:
       - my-network
 
-  # postgres:
-  #   image: postgres
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres@123
-  #     POSTGRES_DB: sms
-  #   ports:
-  #     - "5432:5432"
-  #   networks:
-  #     - my-network
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres@123
+      POSTGRES_DB: sms
+    ports:
+      - "5432:5432"
+    networks:
+      - my-network
 
 networks:
   my-network:
