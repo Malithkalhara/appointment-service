@@ -20,7 +20,7 @@ app.use('/api/v1/appointments', appointmentRoute);
 app.use('/api/v1/billing', billRoute);
 
 // port number
-const PORT = process.env.SERVER_PORT || 8080
+const PORT = process.env.SERVER_PORT || 3000
 
 // Check the database connection
 pool.query('SELECT NOW()', (err, res) => {
