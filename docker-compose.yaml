@@ -21,7 +21,7 @@ services:
       - my-network
 
   postgres:
-    image: postgres
+    image: postgres:12.16
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres@123
