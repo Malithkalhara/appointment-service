@@ -43,5 +43,19 @@ services:
     networks:
       - my-network
 
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    depends_on:
+      - nginx
+    volumes:
+      - ./certs:/etc/letsencrypt
+      - ./html:/var/www/html
+    command: certonly --webroot --webroot-path=/var/www/html -d ec2-54-87-254-241.compute-1.amazonaws.com
+    environment:
+      - CERTBOT_EMAIL=your@email.com
+    networks:
+      - my_network
+
 networks:
   my-network:
