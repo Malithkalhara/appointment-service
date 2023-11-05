@@ -55,7 +55,7 @@ services:
     environment:
       - CERTBOT_EMAIL=your@email.com
     networks:
-      - my_network
+      - my-network
 
 networks:
   my-network:
