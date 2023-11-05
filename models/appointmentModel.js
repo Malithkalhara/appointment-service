@@ -2,9 +2,9 @@ const pool = require('../db');
 
 class AppointmentModel {
     // Create a new appointment
-    async createAppointment(title, details, customerId, itemIds, date, timeDuration) {
-      const query = 'INSERT INTO appointment.appointments (title, details, customer_id, item_ids, date, time_duration) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
-      const values = [title, details, customerId, itemIds, date, timeDuration];
+    async createAppointment(title, details, customerId, itemIds, appointmentDate, appointmentTime, timeDuration) {
+      const query = 'INSERT INTO appointment.appointments (title, details, customer_id, item_ids, appointment_date, appointment_time, time_duration) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+      const values = [title, details, customerId, itemIds, appointmentDate, appointmentTime, timeDuration];
   
       try {
         const { rows } = await pool.query(query, values);
@@ -40,9 +40,9 @@ class AppointmentModel {
     }
   
     // Update an appointment
-    async updateAppointment(appointmentId, title, details, itemIds, date, timeDuration) {
-      const query = 'UPDATE appointment.appointments SET title = $2, details = $3, item_ids = $4, date = $5, time_Duration = $6 WHERE id = $1 RETURNING *';
-      const values = [appointmentId, title, details, itemIds, date, timeDuration];
+    async updateAppointment(appointmentId, title, details, itemIds, appointmentDate, appointmentTime, timeDuration) {
+      const query = 'UPDATE appointment.appointments SET title = $2, details = $3, item_ids = $4, appointment_date = $5, appointment_time = $=6, time_Duration = $7 WHERE id = $1 RETURNING *';
+      const values = [appointmentId, title, details, itemIds, appointmentDate, appointmentTime, timeDuration];
   
       try {
         const { rows } = await pool.query(query, values);

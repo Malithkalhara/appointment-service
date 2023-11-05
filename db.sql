@@ -32,8 +32,12 @@ CREATE TABLE appointment.appointments (
     details TEXT,
     customer_id UUID NOT NULL REFERENCES Customers(id),
     item_ids UUID[],
-    date TIMESTAMP NOT NULL;
+    appointment_date DATE NOT NULL,
+    appointment_time TIME,
+    time_duration INTERVAL
 );
+
+
 
 -- Create the Bills table
 CREATE TABLE appointment.billing (
