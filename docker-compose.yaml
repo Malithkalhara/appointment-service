@@ -31,31 +31,31 @@ services:
     networks:
       - my-network
 
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - node-app
-    networks:
-      - my-network
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #   depends_on:
+  #     - node-app
+  #   networks:
+  #     - my-network
 
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    depends_on:
-      - nginx
-    volumes:
-      - ./certs:/etc/letsencrypt
-      - ./html:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html -d ec2-54-87-254-241.compute-1.amazonaws.com
-    environment:
-      - CERTBOT_EMAIL=your@email.com
-    networks:
-      - my-network
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot
+  #   depends_on:
+  #     - nginx
+  #   volumes:
+  #     - ./certs:/etc/letsencrypt
+  #     - ./html:/var/www/html
+  #   command: certonly --webroot --webroot-path=/var/www/html -d ec2-54-87-254-241.compute-1.amazonaws.com
+  #   environment:
+  #     - CERTBOT_EMAIL=your@email.com
+  #   networks:
+  #     - my-network
 
 networks:
   my-network:
