@@ -1,16 +1,28 @@
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv').config();
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const appointmentRoute = require('./routes/appointmentRoutes');
 const billRoute = require('./routes/billingRoutes');
 const pool = require('./db');
 
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv').config();
+
 // instantiate express app
 const app = express()
 app.use(bodyParser.json());
+
+// Set up CORS middleware
+app.use(
+    cors({
+      origin: 'http://localhost:3000', // Replace with your frontend's URL
+      methods: 'GET,POST,OPTIONS',
+      allowedHeaders: 'Content-Type',
+      credentials: true,
+    })
+);
 
 //setup express app
 app.use(express.json());
