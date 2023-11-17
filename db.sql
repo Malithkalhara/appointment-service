@@ -17,7 +17,7 @@ CREATE TABLE appointment.customers (
 );
 
 -- Create the Items table
-CREATE TABLE appointment.items (
+CREATE TABLE appointment.services (
     id UUID PRIMARY KEY,
     name TEXT NOT NULL,
     details TEXT,

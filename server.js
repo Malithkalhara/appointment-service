@@ -1,7 +1,9 @@
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
-const appointmentRoute = require('./routes/appointmentRoutes');
-const billRoute = require('./routes/billingRoutes');
+const appointmentRoutes = require('./routes/appointmentRoutes');
+const billRoutes = require('./routes/billingRoutes');
+const serviceRoutes = require('./routes/serviceRoutes');
+const { authenticateToken } = require('./middleware/auth');
 const pool = require('./db');
 
 const express = require('express');
@@ -26,10 +28,11 @@ app.use(
 
 //setup express app
 app.use(express.json());
-app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/users',authenticateToken, userRoutes);
 app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/appointments', appointmentRoute);
-app.use('/api/v1/billing', billRoute);
+app.use('/api/v1/appointments',authenticateToken, appointmentRoutes);
+app.use('/api/v1/billing', authenticateToken, billRoutes);
+app.use('/api/v1/services', authenticateToken, serviceRoutes );
 
 // port number
 const PORT = process.env.SERVER_PORT || 3000
