@@ -1,0 +1,27 @@
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:51:01.478Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T06:51:01.756Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:51:34.200Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:52:48.200Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:53:02.698Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:54:15.011Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:54:33.628Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T06:54:33.804Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:55:47.495Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T06:55:47.677Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:57:12.392Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T06:57:12.864Z"}
+info: Malith {"timestamp":"2023-11-18T06:57:15.248Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:57:26.612Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T06:57:26.919Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T06:57:49.773Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T06:57:50.094Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T07:01:49.389Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T07:01:49.685Z"}
+error: invalid signature {"timestamp":"2023-11-18T07:01:53.111Z"}
+warn: Malith {"timestamp":"2023-11-18T07:01:53.114Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T07:02:25.259Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T07:02:25.846Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T07:02:47.605Z"}
+error: password authentication failed for user "postgres" {"timestamp":"2023-11-18T07:02:47.743Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T07:03:12.273Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-18T07:03:12.427Z"}

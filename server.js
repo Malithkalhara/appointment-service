@@ -5,6 +5,7 @@ const billRoutes = require('./routes/billingRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const { authenticateToken } = require('./middleware/auth');
 const pool = require('./db');
+const logger = require('./logger');
 
 const express = require('express');
 const jwt = require('jsonwebtoken');
@@ -28,7 +29,7 @@ app.use(
 
 //setup express app
 app.use(express.json());
-app.use('/api/v1/users',authenticateToken, userRoutes);
+app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/appointments',authenticateToken, appointmentRoutes);
 app.use('/api/v1/billing', authenticateToken, billRoutes);
@@ -40,16 +41,15 @@ const PORT = process.env.SERVER_PORT || 3000
 // Check the database connection
 pool.query('SELECT NOW()', (err, res) => {
     if (err) {
-        console.error('Database connection error:', err);
+        logger.error(err.message);
     } else {
-        console.log('Database connected. Server started.');
+        logger.info('Database connected. Server started.');
     }
 });
 
-
 // start server
 app.listen(PORT, () => {
-    console.log(`Server started. Listening on port ${PORT}`)
+    logger.info(`Server started. Listening on port ${PORT}`);
 })
 
 // export server for testing
