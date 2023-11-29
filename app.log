@@ -25,3 +25,11 @@ info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T07:02:47.6
 error: password authentication failed for user "postgres" {"timestamp":"2023-11-18T07:02:47.743Z"}
 info: Server started. Listening on port 6000 {"timestamp":"2023-11-18T07:03:12.273Z"}
 info: Database connected. Server started. {"timestamp":"2023-11-18T07:03:12.427Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-29T18:01:09.378Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-29T18:01:09.932Z"}
+error: invalid token {"timestamp":"2023-11-29T18:03:11.175Z"}
+error: null value in column "id" of relation "services" violates not-null constraint {"code":"23502","column":"id","detail":"Failing row contains (null, Hair-cut, Normal men's hair-cut, 800.00, hair).","file":"execmain.c","length":244,"line":"1974","name":"error","routine":"ExecConstraints","schema":"appointment","severity":"ERROR","table":"services","timestamp":"2023-11-29T18:03:37.919Z"}
+error: null value in column "id" of relation "services" violates not-null constraint {"code":"23502","column":"id","detail":"Failing row contains (null, Hair-cut, Normal men's hair-cut, 800.00, hair).","file":"execmain.c","length":244,"line":"1974","name":"error","routine":"ExecConstraints","schema":"appointment","severity":"ERROR","table":"services","timestamp":"2023-11-29T18:05:12.560Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-11-29T18:17:54.257Z"}
+info: Database connected. Server started. {"timestamp":"2023-11-29T18:17:54.399Z"}
+error: invalid token {"timestamp":"2023-11-29T18:18:33.082Z"}

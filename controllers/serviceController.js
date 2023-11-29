@@ -1,14 +1,21 @@
-const ServiceModel = require('../models/serviceModel');
+const ServiceModel = require("../models/serviceModel");
+const logger = require("../logger");
 
 class ServiceController {
   // Create a new service
   async createService(req, res) {
     try {
       const { name, details, price, type } = req.body;
-      const service = await ServiceModel.createService(name, details, price, type);
+      const service = await ServiceModel.createService(
+        name,
+        details,
+        price,
+        type
+      );
       res.status(201).json(service);
     } catch (error) {
-      res.status(500).json({ error: 'Could not create service' });
+      logger.error(error);
+      res.status(500).json({ error: "Could not create service" });
     }
   }
 
@@ -18,7 +25,7 @@ class ServiceController {
       const services = await ServiceModel.getServices();
       res.status(200).json(services);
     } catch (error) {
-      res.status(500).json({ error: 'Could not retrieve services' });
+      res.status(500).json({ error: "Could not retrieve services" });
     }
   }
 
@@ -29,12 +36,12 @@ class ServiceController {
       const service = await ServiceModel.getServiceById(serviceId);
 
       if (!service) {
-        res.status(404).json({ error: 'Service not found' });
+        res.status(404).json({ error: "Service not found" });
       } else {
         res.status(200).json(service);
       }
     } catch (error) {
-      res.status(500).json({ error: 'Could not retrieve service' });
+      res.status(500).json({ error: "Could not retrieve service" });
     }
   }
 
@@ -43,15 +50,21 @@ class ServiceController {
     try {
       const { serviceId } = req.params;
       const { name, details, price, type } = req.body;
-      const updatedService = await ServiceModel.updateService(serviceId, name, details, price, type);
+      const updatedService = await ServiceModel.updateService(
+        serviceId,
+        name,
+        details,
+        price,
+        type
+      );
 
       if (!updatedService) {
-        res.status(404).json({ error: 'Service not found' });
+        res.status(404).json({ error: "Service not found" });
       } else {
         res.status(200).json(updatedService);
       }
     } catch (error) {
-      res.status(500).json({ error: 'Could not update service' });
+      res.status(500).json({ error: "Could not update service" });
     }
   }
 
@@ -62,7 +75,7 @@ class ServiceController {
       await ServiceModel.deleteService(serviceId);
       res.status(204).end();
     } catch (error) {
-      res.status(500).json({ error: 'Could not delete service' });
+      res.status(500).json({ error: "Could not delete service" });
     }
   }
 }
