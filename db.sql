@@ -10,9 +10,8 @@ CREATE TABLE appointment.users (
 
 -- Create the Customers table
 CREATE TABLE appointment.customers (
-    id UUID PRIMARY KEY,
     name TEXT NOT NULL,
-    mobile_no TEXT NOT NULL,
+    mobile_no TEXT NOT NULL PRIMARY KEY,
     email TEXT
 );
 
@@ -30,11 +29,11 @@ CREATE TABLE appointment.appointments (
     id UUID PRIMARY KEY,
     title TEXT NOT NULL,
     details TEXT,
-    customer_id UUID NOT NULL REFERENCES Customers(id),
-    item_ids UUID[],
+    customer_mobile UUID NOT NULL REFERENCES Customers(mobile_no),
+    service_ids UUID[],
     appointment_date DATE NOT NULL,
-    appointment_time TIME,
-    time_duration INTERVAL
+    appointment_starttime TIME,
+    appointment_endtime TIME,
 );
 
 

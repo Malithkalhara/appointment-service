@@ -33,3 +33,12 @@ error: null value in column "id" of relation "services" violates not-null constr
 info: Server started. Listening on port 6000 {"timestamp":"2023-11-29T18:17:54.257Z"}
 info: Database connected. Server started. {"timestamp":"2023-11-29T18:17:54.399Z"}
 error: invalid token {"timestamp":"2023-11-29T18:18:33.082Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-12-04T02:59:01.991Z"}
+info: Database connected. Server started. {"timestamp":"2023-12-04T02:59:02.210Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-12-04T03:08:43.291Z"}
+info: Database connected. Server started. {"timestamp":"2023-12-04T03:08:43.721Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-12-04T04:29:33.821Z"}
+info: Database connected. Server started. {"timestamp":"2023-12-04T04:29:34.203Z"}
+error: null value in column "name" of relation "customers" violates not-null constraint {"code":"23502","column":"name","detail":"Failing row contains (null, null, null).","file":"execmain.c","length":215,"line":"1974","name":"error","routine":"ExecConstraints","schema":"appointment","severity":"ERROR","table":"customers","timestamp":"2023-12-04T04:29:44.657Z"}
+info: Server started. Listening on port 6000 {"timestamp":"2023-12-04T04:42:36.454Z"}
+info: Database connected. Server started. {"timestamp":"2023-12-04T04:42:36.570Z"}
